@@ -8,6 +8,7 @@
 body {
     position: relative;
     margin: 0;
+    overflow-x: hidden;
 }
 
 #particles-js {
@@ -78,7 +79,6 @@ section h3 {
 .titreSection {
     position: absolute;
     top: 0;
-    left: 0;
     margin: 50px 80px;
     display: flex;
     justify-content: center;
@@ -88,10 +88,24 @@ section h3 {
 .titreSection img {
     position: absolute;
     transform: translateX(5%) rotateZ(65deg);
+    overflow: hidden;
     width: calc(20rem + 5vw);
     top: 50;
     left: 50;
 }
+
+.titreSection.left {
+    left: 0;
+}
+
+.titreSection.right {
+    right: 0;
+}
+
+.titreSection.right img {
+    transform: translateX(-8%) rotateZ(245deg);
+}
+
 
 #about p {
     width: 50%;
@@ -126,12 +140,79 @@ section h3 {
     -webkit-filter: saturate(0%);
     filter: saturate(0%);
     width: 50%;
-    -webkit-mask-image: linear-gradient(black 75%, transparent 100%);
-    mask-image: linear-gradient(black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(black 70%, transparent 90%);
+    mask-image: linear-gradient(black 70%, transparent 90%);
     transition: all 0.25s ease;
 }
 
 .photoMateo img:hover {
     -webkit-filter: saturate(100%);
     filter: saturate(100%);
+}
+
+#skills {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+#skills .titreSection img {
+    width: calc(22rem + 5vw);
+}
+
+.grid {
+    margin-top: 200px;
+    width: 80%;
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+}
+
+.iconBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.iconBox .icone {
+    width: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.iconBox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: calc(1 + var(--i));
+    opacity: calc(1 - (0.2 * var(--j)));
+    transition: all 0.5s ease;
+}
+
+.iconBox .imgPatron {
+    position: relative;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.iconBox:hover .blobSkill {
+    transform: rotate(-30deg) skew(25deg) translateX(calc(1vw * var(--i))) translateY(calc(-1vw * var(--i)));
+}
+
+.iconBox:hover .icone {
+    transform: rotate(-30deg) skew(25deg) translateX(calc(1vw * var(--i))) translateY(calc(-1vw * var(--i) - 50%));
+}
+
+.iconBox p {
+    width: 90%;
+    text-align: justify;
 }
