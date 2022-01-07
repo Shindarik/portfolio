@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
-    let leftPos, movLeft = 0, movRight = 0;
+    let leftPos, movLeft = 0,
+        movRight = 0;
     let sliderWidth = $(".slider").width();
 
 
@@ -28,17 +29,10 @@ $(document).ready(function () {
         if (leftPos < 0) {
             movLeft += sliderWidth;
             movRight -= sliderWidth;
-            
+
             $(".type").animate({
                 left: movLeft
             }, 1000);
-
-            setTimeout(() => {
-                leftPos = parseInt($(".type").css("left"));
-                if(leftPos > 0){
-                    $(".type").css("left", "0");
-                }
-            }, 2000);
 
         }
     });
