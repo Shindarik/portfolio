@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
     let leftPos, movLeft = 0, movRight = 0;
+    let sliderWidth = $(".slider").width();
+
 
     setInterval(() => {
         $(".slide").width($(".slider").width() - 10);
@@ -24,19 +26,35 @@ $(document).ready(function () {
         leftPos = parseInt($(".type").css("left"));
 
         if (leftPos < 0) {
-            movLeft += $(".slider").width();
-            movRight -= $(".slider").width();
-            $(".type").css("left", movLeft);
+            movLeft += sliderWidth;
+            movRight -= sliderWidth;
+            
+            $(".type").animate({
+                left: movLeft
+            }, 1000);
+
+            setTimeout(() => {
+                leftPos = parseInt($(".type").css("left"));
+                if(leftPos > 0){
+                    $(".type").css("left", "0");
+                }
+            }, 2000);
+
         }
     });
 
     $(".btnRight").on("click", function () {
         leftPos = parseInt($(".type").css("left"));
 
-        if (leftPos < $(".slider").width()) {
-            movLeft -= $(".slider").width();
-            movRight += $(".slider").width();
-            $(".type").css("left", -movRight);
+        console.log(leftPos, sliderWidth);
+
+        if (leftPos > (-sliderWidth) || leftPos == 0) {
+            movLeft -= sliderWidth;
+            movRight += sliderWidth;
+
+            $(".type").animate({
+                left: -movRight
+            }, 1000);
         }
     });
 
