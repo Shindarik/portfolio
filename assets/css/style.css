@@ -5,20 +5,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body::-webkit-scrollbar {
-    width: 10px;
-    background: rgb(255, 255, 255);
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: #ff0066;
-    border-radius: 20px;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-    background-color: #880036;
-}
-
 body {
     position: relative;
     margin: 0;
