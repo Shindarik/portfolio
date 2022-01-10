@@ -21,7 +21,25 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-    <title>Matéo Suslu</title>
+    <?php
+        include __DIR__ . '../assets/connect.php';
+
+        if(!isset($_GET["id"]) || ($_GET["id"] < 1) || ($_GET["id"] > 11)){
+            header("Location: index.html");
+            die();
+        }
+
+        $sql = "SELECT nom FROM projet WHERE id = :projetId";
+        $req = $link -> prepare($sql);
+        $req->bindValue(":projetId", $_GET["id"], PDO::PARAM_STR);
+        $req -> execute();
+
+        while($data = $req -> fetch()){
+            echo '<title>Matéo Suslu - '.$data["nom"].'</title>';
+        }
+
+        $req = null;
+    ?>
 </head>
 
 <body>
@@ -39,12 +57,16 @@
                 <img src="./images/affichejpo.png" alt="Photo de Matéo Suslu">
             </div>
             <div class="textProjet">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat qui voluptatem id animi optio expedita cum
-                    officiis explicabo nostrum mollitia nobis, doloremque fugit earum non illo architecto similique aperiam
-                    molestias! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat qui voluptatem id animi optio
-                    expedita cum officiis explicabo nostrum mollitia nobis, doloremque fugit earum non illo architecto similique
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat qui voluptatem id animi optio
+                    expedita cum
+                    officiis explicabo nostrum mollitia nobis, doloremque fugit earum non illo architecto similique
+                    aperiam
+                    molestias! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat qui voluptatem id animi
+                    optio
+                    expedita cum officiis explicabo nostrum mollitia nobis, doloremque fugit earum non illo architecto
+                    similique
                     aperiam molestias!</p>
-                    <a href="#">Voir le projet</a>
+                <a href="#">Voir le projet</a>
             </div>
         </div>
 
@@ -57,9 +79,12 @@
         </div>
 
         <div class="grid">
-            <div class="iconBox" style="grid-area: 1 / 1 / 3 / 2; background-image: url(../../images/affichejpo.png);"></div>
-            <div class="iconBox" style="grid-area: 1 / 2 / 2 / 3; background-image: url(../../images/iconePhotoshop.png);"></div>
-            <div class="iconBox" style="grid-area: 2 / 2 / 3 / 3; background-image: url(../../images/iconeAfterEffects.png);"></div>
+            <div class="iconBox" style="grid-area: 1 / 1 / 3 / 2; background-image: url(../../images/affichejpo.png);">
+            </div>
+            <div class="iconBox"
+                style="grid-area: 1 / 2 / 2 / 3; background-image: url(../../images/iconePhotoshop.png);"></div>
+            <div class="iconBox"
+                style="grid-area: 2 / 2 / 3 / 3; background-image: url(../../images/iconeAfterEffects.png);"></div>
         </div>
 
     </section>
@@ -69,8 +94,8 @@
     </div>
 
     <footer>
-        <a href="./index.html"><- Retour</a>
-        <span>Tous droits réservés, 2022</span>
+        <a href="./index.html">
+            <- Retour</a> <span>Tous droits réservés, 2022</span>
     </footer>
 
     <script src="./assets/js/projet.js"></script>
