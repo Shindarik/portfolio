@@ -1,7 +1,8 @@
 $(document).ready(function () {
 
     let leftPos, movLeft = 0,
-        movRight = 0, compteurMov = 1;
+        movRight = 0,
+        compteurMov = 1;
     let sliderWidth = $(".slider").width();
 
 
@@ -11,11 +12,11 @@ $(document).ready(function () {
 
         leftPos = parseInt($(".type").css("left"));
 
-        if(leftPos == 0){
+        if (leftPos == 0) {
             $(".btnLeft").hide();
-        } else if(leftPos <= -(sliderWidth)){
+        } else if (leftPos <= -(sliderWidth)) {
             $(".btnRight").hide();
-        } else{
+        } else {
             $(".btnLeft").show();
             $(".btnRight").show();
         }
@@ -57,7 +58,7 @@ $(document).ready(function () {
     $(".btnRight").on("click", function () {
         leftPos = parseInt($(".type").css("left"));
 
-        if ((leftPos > (-sliderWidth) && compteurMov == 1 )|| leftPos == 0) {
+        if ((leftPos > (-sliderWidth) && compteurMov == 1) || leftPos == 0) {
             movLeft -= sliderWidth;
             movRight += sliderWidth;
             compteurMov = 0;
@@ -78,6 +79,20 @@ $(document).ready(function () {
         }, 1000);
 
         movRight = 0, movLeft = 0;
+    });
+
+    $(".clipboard").on("click", function () {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(this).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+
+        $(this).toggleClass("active");
+
+        setTimeout(() => {
+            $(this).toggleClass("active");
+        }, 1000);
     });
 
 });
