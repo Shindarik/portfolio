@@ -78,7 +78,7 @@ section h3 {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .photoProjet {
@@ -94,7 +94,7 @@ section h3 {
 
 
 .photoProjet img {
-    width: 90%;
+    width: 100%;
     -webkit-mask: url(../../images/blob3.svg);
     mask: url(../../images/blob3.svg);
     -webkit-mask-repeat: no-repeat;
@@ -118,7 +118,21 @@ section h3 {
     text-align: justify;
 }
 
-.textProjet a {
+.textProjet span,
+.textProjet p a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #ff0066;
+    transition: all 0.25s ease;
+}
+
+.textProjet p a:hover {
+    color: white;
+    background-color: #ff0066;
+}
+
+
+.textProjet p+a {
     margin: 20px 0;
     text-decoration: none;
     color: white;
@@ -128,7 +142,7 @@ section h3 {
     transition: all 0.25s ease;
 }
 
-.textProjet a:hover {
+.textProjet p+a:hover {
     background-color: #ff0066;
 }
 

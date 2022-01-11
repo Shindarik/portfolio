@@ -24,14 +24,27 @@
     <?php
         include __DIR__ . '/assets/connect.php';
 
-        if(!isset($_GET["id"]) || ($_GET["id"] < 1) || ($_GET["id"] > 11)){
+        if(isset($_GET["id"])){
+
+            $idP = intval($_GET["id"]);
+
+            if(($idP < 1) || ($idP > 11)){
+
+                header("Location: index.html");
+                die();
+                
+            }
+
+        }else{
+
             header("Location: index.html");
             die();
+
         }
 
         $sql = "SELECT nom FROM projet WHERE id = :projetId";
         $req = $link -> prepare($sql);
-        $req->bindValue(":projetId", $_GET["id"], PDO::PARAM_STR);
+        $req->bindValue(":projetId", $idP, PDO::PARAM_STR);
         $req -> execute();
 
         while($data = $req -> fetch()){
@@ -48,25 +61,64 @@
 
     <header>
         <div class="titreProjet">
-            <h1>Matéo SUSLU</h1>
-            <h2>Développeur Web</h2>
+            <?php
+                $sql = "SELECT nom, domaine FROM projet WHERE id = :projetId";
+                $req = $link -> prepare($sql);
+                $req->bindValue(":projetId", $idP, PDO::PARAM_STR);
+                $req -> execute();
+
+                while($data = $req -> fetch()){
+                    echo '<h1>'.$data["nom"].'</h1>';
+                    echo '<h2>'.$data["domaine"].'</h2>';
+                }
+
+                $req = null;
+            ?>
         </div>
 
         <div class="aboutProjet">
             <div class="photoProjet">
-                <img src="./images/affichejpo.png" alt="Photo de Matéo Suslu">
+                <?php
+                    $sql = "SELECT photoPrincipale FROM projet WHERE id = :projetId";
+                    $req = $link -> prepare($sql);
+                    $req->bindValue(":projetId", $idP, PDO::PARAM_STR);
+                    $req -> execute();
+
+                    while($data = $req -> fetch()){
+                        echo '<img src="'.$data["photoPrincipale"].'" alt="Photo du projet">';
+                    }
+
+                    $req = null;
+                ?>
             </div>
             <div class="textProjet">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat qui voluptatem id animi optio
-                    expedita cum
-                    officiis explicabo nostrum mollitia nobis, doloremque fugit earum non illo architecto similique
-                    aperiam
-                    molestias! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat qui voluptatem id animi
-                    optio
-                    expedita cum officiis explicabo nostrum mollitia nobis, doloremque fugit earum non illo architecto
-                    similique
-                    aperiam molestias!</p>
-                <a href="#">Voir le projet</a>
+                <p>
+                    <?php
+                        $sql = "SELECT textePresentation FROM projet WHERE id = :projetId";
+                        $req = $link -> prepare($sql);
+                        $req->bindValue(":projetId", $idP, PDO::PARAM_STR);
+                        $req -> execute();
+
+                        while($data = $req -> fetch()){
+                            echo $data["textePresentation"];
+                        }
+
+                        $req = null;
+                    ?>
+                </p>
+
+                <?php
+                    $sql = "SELECT lien FROM projet WHERE id = :projetId";
+                    $req = $link -> prepare($sql);
+                    $req->bindValue(":projetId", $idP, PDO::PARAM_STR);
+                    $req -> execute();
+
+                    while($data = $req -> fetch()){
+                        echo '<a href="'.$data["lien"].'" target="_blank">Voir le projet</a>';
+                    }
+
+                    $req = null;
+                ?>
             </div>
         </div>
 
@@ -79,12 +131,20 @@
         </div>
 
         <div class="grid">
-            <div class="iconBox" style="grid-area: 1 / 1 / 3 / 2; background-image: url(../../images/affichejpo.png);">
-            </div>
-            <div class="iconBox"
-                style="grid-area: 1 / 2 / 2 / 3; background-image: url(../../images/iconePhotoshop.png);"></div>
-            <div class="iconBox"
-                style="grid-area: 2 / 2 / 3 / 3; background-image: url(../../images/iconeAfterEffects.png);"></div>
+                <?php
+                    $sql = "SELECT photoMed1, photoMed2, photoMed3 FROM projet WHERE id = :projetId";
+                    $req = $link -> prepare($sql);
+                    $req->bindValue(":projetId", $idP, PDO::PARAM_STR);
+                    $req -> execute();
+
+                    while($data = $req -> fetch()){
+                        echo '<div class="iconBox" style="grid-area: 1 / 1 / 3 / 2; background-image: url('.$data["photoMed1"].')"></div>';
+                        echo '<div class="iconBox" style="grid-area: 1 / 2 / 2 / 3; background-image: url('.$data["photoMed2"].');"></div>';
+                        echo '<div class="iconBox" style="grid-area: 2 / 2 / 3 / 3; background-image: url('.$data["photoMed3"].');"></div>';
+                    }
+
+                    $req = null;
+                ?>
         </div>
 
     </section>
