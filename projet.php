@@ -22,7 +22,7 @@
         rel="stylesheet">
 
     <?php
-        include __DIR__ . '../assets/connect.php';
+        include __DIR__ . '/assets/connect.php';
 
         if(!isset($_GET["id"]) || ($_GET["id"] < 1) || ($_GET["id"] > 11)){
             header("Location: index.html");
@@ -94,8 +94,8 @@
     </div>
 
     <footer>
-        <a href="./index.html">
-            <- Retour</a> <span>Tous droits réservés, 2022</span>
+        <a href="./index.html"><- Retour</a>
+        <span>Tous droits réservés, 2022</span>
     </footer>
 
     <script src="./assets/js/projet.js"></script>
