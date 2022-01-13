@@ -237,6 +237,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    min-height: 100px;
     height: 10vh;
     overflow: hidden;
     background-color: #ff3284;
@@ -248,6 +249,7 @@ footer * {
 }
 
 footer a {
+    text-align: center;
     text-decoration: none;
     color: white;
     border: solid white;
