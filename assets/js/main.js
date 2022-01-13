@@ -31,7 +31,7 @@ $(document).ready(function () {
         let wh = $(window).height();
         let scrollPourcent = (scroll / (dh - wh)) * 100;
 
-        let scrollValue = 100 - scrollPourcent;
+        let scrollValue = 100 - (2*scrollPourcent);
 
         $(".photoMateo img").css("top", scrollValue + "px");
     });
