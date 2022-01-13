@@ -69,6 +69,7 @@ section h3 {
     position: relative;
     color: white;
     z-index: 2;
+    text-align: center;
     font-size: calc(1.5rem + .5vw);
 }
 
@@ -516,7 +517,18 @@ footer a:hover {
         grid-template: repeat(4, 1fr) / repeat(2, 1fr);
     }
 
-    .footer * {
-        font-size: .75rem;
+    footer * {
+        font-size: 0.75rem;
+        margin: 0 20px;
+    }
+}
+
+@media (max-width: 320px) {
+    #about p {
+        padding: 100px 0px 0px;
+    }
+
+    .grid {
+        grid-template: repeat(8, 1fr) / repeat(1, 1fr);
     }
 }
