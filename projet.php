@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1">
     <meta property="og:title" content="Matéo SUSLU" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Portfolio de Matéo SUSLU, Développeur Web" />
+    <meta property="og:description" content="Portfolio de Matéo SUSLU - Projet" />
     <meta property="og:url" content="http://www.mateosuslu.fr" />
     <meta property="og:image" content="http://www.mateosuslu.fr/images/M.png" />
-    <meta name="description" content="Portfolio de Matéo SUSLU, Développeur Web">
+    <meta name="description" content="Portfolio de Matéo SUSLU - Projet">
     <link rel="shortcut icon" href="./images/M.png" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/projet.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
