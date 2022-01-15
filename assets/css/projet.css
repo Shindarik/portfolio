@@ -222,7 +222,7 @@ section h3 {
     position: absolute;
     left: 50%;
     top: 50%;
-    height: 80%;
+    width: 90%;
     transform: translate(-50%, -50%);
     z-index: 20;
 }
@@ -237,9 +237,8 @@ footer {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    min-height: 100px;
     height: 10vh;
-    overflow: hidden;
+    min-height: 100px;
     background-color: #ff3284;
 }
 
@@ -300,4 +299,30 @@ footer a:hover {
         -webkit-filter: drop-shadow(4vw 1.5vw 0px #ff3284) drop-shadow(-2vw -1.5vw 0px #d40055);
         filter: drop-shadow(4vw 1.5vw 0px #ff3284) drop-shadow(-2vw -1.5vw 0px #d40055);
     }
+}
+
+@media (max-width: 768px) {
+
+    .aboutProjet {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .photoProjet {
+        width: 80%;
+    }
+
+    .textProjet {
+        width: 80%;
+    }
+
+}
+
+@media (max-width: 425px) {
+
+    footer * {
+        font-size: 0.75rem;
+        margin: 0 20px;
+    }
+
 }

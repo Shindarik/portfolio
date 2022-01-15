@@ -247,7 +247,6 @@ section h3 {
 
 
 .slider {
-    padding: 20px;
     position: relative;
     width: 80%;
     margin: 200px 0px 100px;
@@ -269,8 +268,8 @@ section h3 {
 }
 
 .slide {
+    width: 100%;
     display: flex;
-    margin: 0 20px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -480,6 +479,14 @@ footer a:hover {
         width: 70%;
     }
 
+    .boxProjet h4 {
+        opacity: 1;
+    }
+
+    .boxProjet .tag {
+        bottom: 0;
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -521,6 +528,11 @@ footer a:hover {
         font-size: 0.75rem;
         margin: 0 20px;
     }
+
+    .tag span {
+        font-size: .6rem;
+        padding: 2px;
+    }
 }
 
 @media (max-width: 320px) {
@@ -530,5 +542,9 @@ footer a:hover {
 
     .grid {
         grid-template: repeat(8, 1fr) / repeat(1, 1fr);
+    }
+
+    .tag span {
+        font-size: .5rem;
     }
 }

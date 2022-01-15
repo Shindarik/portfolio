@@ -1,27 +1,9 @@
 $(document).ready(function () {
 
-    let leftPos, movLeft = 0,
-        movRight = 0,
-        compteurMov = 1;
-    let sliderWidth = $(".slider").width();
+    let movLeft = 0, compteurMov = 1, compteurSlide = 0;
+    let sliderWidth = $(".slide").width();
 
-
-    setInterval(() => {
-        $(".slide").width($(".slider").width() - 10);
-        sliderWidth = $(".slider").width();
-
-        leftPos = parseInt($(".type").css("left"));
-
-        if (leftPos == 0) {
-            $(".btnLeft").hide();
-        } else if (leftPos <= -(sliderWidth)) {
-            $(".btnRight").hide();
-        } else {
-            $(".btnLeft").show();
-            $(".btnRight").show();
-        }
-    }, 10);
-
+    $(".btnLeft").hide();
 
 
     $(window).scroll(function () {
@@ -37,48 +19,89 @@ $(document).ready(function () {
     });
 
     $(".btnLeft").on("click", function () {
-        leftPos = parseInt($(".type").css("left"));
 
-        if (leftPos < 0 && compteurMov == 1) {
-            movLeft += sliderWidth;
-            movRight -= sliderWidth;
+        if (compteurMov == 1 && compteurSlide !=0) {
             compteurMov = 0;
+            compteurSlide--;
 
+            if (compteurSlide == 0) {
+                $(".btnLeft").hide();
+                sliderWidth = $(".slide").width();
+            } else if (compteurSlide == 2) {
+                $(".btnRight").hide();
+                sliderWidth = $(".slide").width();
+            } else if (compteurSlide == 1) {
+                $(".btnLeft").hide();
+                $(".btnRight").hide();
+                sliderWidth = $(".slide").width();
+                $(".btnLeft").show();
+                $(".btnRight").show();
+            }
+
+            movLeft += sliderWidth;
+            
             $(".type").animate({
                 left: movLeft
             }, 1000);
 
             setTimeout(() => {
                 compteurMov = 1;
-            }, 1000);
+            }, 1200);
 
         }
     });
 
     $(".btnRight").on("click", function () {
-        leftPos = parseInt($(".type").css("left"));
 
-        if ((leftPos > (-sliderWidth) && compteurMov == 1) || leftPos == 0) {
-            movLeft -= sliderWidth;
-            movRight += sliderWidth;
+
+        if (compteurMov == 1 && compteurSlide!=2) {
             compteurMov = 0;
+            compteurSlide++;
 
+            if (compteurSlide == 0) {
+                $(".btnLeft").hide();
+                sliderWidth = $(".slide").width();
+            } else if (compteurSlide == 2) {
+                $(".btnRight").hide();
+                sliderWidth = $(".slide").width();
+            } else if (compteurSlide == 1) {
+                $(".btnLeft").hide();
+                $(".btnRight").hide();
+                sliderWidth = $(".slide").width();
+                $(".btnLeft").show();
+                $(".btnRight").show();
+            }
+
+            movLeft -= sliderWidth;
+
+            
             $(".type").animate({
-                left: -movRight
+                left: movLeft
             }, 1000);
 
             setTimeout(() => {
                 compteurMov = 1;
-            }, 1000);
+            }, 1200);
         }
     });
 
-    $(window).resize(function () {
-        $(".type").animate({
-            left: 0
-        }, 1000);
+    let winWidth = $(window).width();
 
-        movRight = 0, movLeft = 0;
+    $(window).resize(function () {
+
+        if(winWidth != $(window).width()){
+
+            winWidth = $(window).width();
+
+            $(".type").css("left", "0px");
+    
+            $(".btnLeft").hide();
+            $(".btnRight").show();
+            compteurSlide = 0;
+            compteurMov = 1;
+            movLeft = 0;
+        }
+
     });
 
     $(".clipboard").on("click", function () {
