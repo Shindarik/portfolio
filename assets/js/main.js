@@ -3,7 +3,14 @@ $(document).ready(function () {
     let movLeft = 0, compteurMov = 1, compteurSlide = 0;
     let sliderWidth = $(".slide").width();
 
+<<<<<<< Updated upstream
     $(".btnLeft").hide();
+=======
+    $(".toggle").on("click", function(){
+        $(".menu").toggleClass("active");
+    });
+
+>>>>>>> Stashed changes
 
 
     $(window).scroll(function () {

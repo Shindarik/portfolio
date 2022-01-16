@@ -26,6 +26,70 @@ body {
     height: 100%;
 }
 
+.menu {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    cursor: pointer;
+}
+
+.menu li {
+    position: absolute;
+    left: 0;
+    list-style: none;
+    transform-origin: 35px;
+    transition: all 0.5s ease;
+    transition-delay: calc(0.1s * var(--i));
+    transform: rotate(0deg) translateX(35px);
+}
+
+.menu.active li {
+    transform: rotate(calc(360deg / 5 * var(--i)));
+}
+
+.menu li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 50%;
+    transform: rotate(calc(360deg / -5 * var(--i)));
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+    color: #111;
+    transition: all 0.5s ease;
+}
+
+.menu li a:hover {
+    color: #ff0066;
+}
+
+.menu .toggle {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+    font-size: 2rem;
+    transition: all 0.5 ease;
+}
+
+.menu.active .toggle {
+    transform: rotate(315deg);
+}
+
 h1 {
     font-size: calc(5rem + 1.5vw);
 }
