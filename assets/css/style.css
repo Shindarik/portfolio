@@ -28,10 +28,10 @@ body {
 
 .menu {
     position: fixed;
-    right: 0;
-    top: 0;
-    height: 70px;
-    width: 70px;
+    right: 2%;
+    top: 2%;
+    height: 50px;
+    width: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,10 +43,10 @@ body {
     position: absolute;
     left: 0;
     list-style: none;
-    transform-origin: 35px;
+    transform-origin: 25px;
     transition: all 0.5s ease;
     transition-delay: calc(0.1s * var(--i));
-    transform: rotate(0deg) translateX(35px);
+    transform: rotate(0deg) translateX(50%);
 }
 
 .menu.active li {
@@ -73,9 +73,10 @@ body {
 
 .menu .toggle {
     position: absolute;
-    width: 90%;
-    height: 90%;
-    background-color: white;
+    width: 100%;
+    height: 100%;
+    background-color: #fa3685;
+    color: #fff;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -83,7 +84,8 @@ body {
     cursor: pointer;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
     font-size: 2rem;
-    transition: all 0.5 ease;
+    z-index: 10001;
+    transition: all 0.5s ease;
 }
 
 .menu.active .toggle {
