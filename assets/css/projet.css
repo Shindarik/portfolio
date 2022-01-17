@@ -272,7 +272,10 @@ section h3 {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 90%;
+    height: auto;
+    width: auto;
+    max-height: 90%;
+    max-width: 90%;
     transform: translate(-50%, -50%);
     z-index: 20;
 }
