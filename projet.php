@@ -57,6 +57,13 @@
 
 <body>
 
+    <div class="loader">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+    </div>
+
     <div id="particles-js"></div>
 
     <header>
@@ -124,7 +131,7 @@
 
     </header>
 
-    <section id="skills">
+    <section id="med">
         <div class="titreSection">
             <h3>Médias</h3>
             <img src="./images/blob4.svg" alt="">

@@ -1,3 +1,8 @@
+$(window).on("load", function(){
+    $(".loader").fadeOut("slow");
+    $("body").css("overflow-y", "auto");
+});
+
 $(document).ready(function () {
     $(".iconBox").click(function(){
         $(".bgBlack").toggleClass("active");

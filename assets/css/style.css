@@ -12,8 +12,58 @@ html {
 body {
     position: relative;
     margin: 0;
+    overflow-y: hidden;
     overflow-x: hidden;
+    cursor: url(../../images/cursor.svg), auto;
 }
+
+a {
+    cursor: url(../../images/cursorClick.svg), auto;
+}
+
+.loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fa3685;
+    z-index: 1000000;
+}
+
+.spinner {
+    margin: 100px auto;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    text-align: center;
+    -webkit-animation: sk-rotate 2.0s infinite linear;
+    animation: sk-rotate 2.0s infinite linear;
+}
+
+.dot1,
+.dot2 {
+    width: 60%;
+    height: 60%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    background-color: #fff;
+    border-radius: 100%;
+    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+    top: auto;
+    bottom: 0;
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
 
 #particles-js {
     position: absolute;
@@ -69,9 +119,11 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
+    outline: none;
     transform: rotate(calc(210deg / -5 * var(--i)));
     color: #111;
     transition: all 0.5s ease;
+    cursor: url(../../images/cursorClick.svg), auto;
 }
 
 
@@ -89,7 +141,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    cursor: url(../../images/cursorClick.svg), auto;
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
     font-size: 2rem;
     z-index: 10001;
@@ -414,14 +466,13 @@ section h3 {
     background-color: #fa3685;
     border-radius: 50px;
     padding: 5px;
-    cursor: default;
     transition: all .25s ease;
 }
 
 #projects button {
     border: none;
     background: none;
-    cursor: pointer;
+    cursor: url(../../images/cursorClick.svg), auto;
     font-size: calc(3rem + 2vw);
     font-weight: 600;
 }
@@ -451,7 +502,7 @@ section h3 {
     justify-content: center;
     align-items: center;
     margin: 0;
-    cursor: pointer;
+    cursor: url(../../images/cursorClick.svg), auto;
     font-size: calc(1rem + .25vw);
 }
 
@@ -521,6 +572,45 @@ footer a:hover {
     color: black;
     background-color: #fff;
     border: solid white;
+}
+
+@-webkit-keyframes sk-rotate {
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@keyframes sk-rotate {
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@-webkit-keyframes sk-bounce {
+
+    0%,
+    100% {
+        -webkit-transform: scale(0.0)
+    }
+
+    50% {
+        -webkit-transform: scale(1.0)
+    }
+}
+
+@keyframes sk-bounce {
+
+    0%,
+    100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    }
+
+    50% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
 }
 
 @media (max-width: 1200px) and (min-width: 1024px) {

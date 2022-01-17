@@ -1,3 +1,9 @@
+$(window).on("load", function(){
+    $(".loader").fadeOut("slow");
+    $("body").css("overflow-y", "auto");
+});
+
+
 $(document).ready(function () {
 
     let movLeft = 0, compteurMov = 1, compteurSlide = 0;
