@@ -28,29 +28,39 @@ body {
 
 .menu {
     position: fixed;
-    right: 2%;
-    top: 2%;
-    height: 50px;
-    width: 50px;
+    right: -1%;
+    top: -1%;
+    height: 200px;
+    width: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10000;
-    cursor: pointer;
 }
 
 .menu li {
     position: absolute;
     left: 0;
     list-style: none;
-    transform-origin: 25px;
-    transition: all 0.5s ease;
+    font-size: calc(1rem + 1vw);
+    opacity: 0;
+    transform-origin: 100px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: dotted #111;
+    padding: 5px;
+    transition: transform 0.5s ease, opacity 0.25s, border 0.5s ease;
     transition-delay: calc(0.1s * var(--i));
-    transform: rotate(0deg) translateX(50%);
+    transform: rotate(0deg) translateX(100px);
+}
+
+.menu li:hover {
+    border: solid #ff0066;
 }
 
 .menu.active li {
-    transform: rotate(calc(360deg / 5 * var(--i)));
+    transform: rotate(calc(210deg / 5 * var(--i)));
+    opacity: 1;
 }
 
 .menu li a {
@@ -59,22 +69,20 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
-    background: white;
-    border-radius: 50%;
-    transform: rotate(calc(360deg / -5 * var(--i)));
-    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+    transform: rotate(calc(210deg / -5 * var(--i)));
     color: #111;
     transition: all 0.5s ease;
 }
 
-.menu li a:hover {
+
+.menu li:hover a {
     color: #ff0066;
 }
 
 .menu .toggle {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 25%;
+    height: 25%;
     background-color: #fa3685;
     color: #fff;
     border-radius: 50%;
@@ -557,13 +565,32 @@ footer a:hover {
 
 @media (max-width: 768px) {
 
+    .menu {
+        right: -1%;
+        top: -1%;
+        height: 150px;
+        width: 150px;
+    }
+
+    .menu .toggle {
+        width: 35%;
+        height: 35%;
+        font-size: 2rem;
+    }
+
+    .menu li {
+        transform-origin: 75px;
+        padding: 5px;
+        transform: rotate(0deg) translateX(75px);
+    }
+
     #about {
         flex-direction: column;
     }
 
     #about p {
         width: 80%;
-        padding: 200px 0px 0px;
+        padding: 100px 0px 0px;
     }
 
     .photoMateo {
@@ -586,6 +613,21 @@ footer a:hover {
 }
 
 @media (max-width: 425px) {
+
+    .titreSection {
+        margin: 50px 0px;
+    }
+
+    .titreSection.left {
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    .titreSection.right {
+        left: 50%;
+        transform: translate(-50%);
+    }
+
     .grid {
         grid-template: repeat(4, 1fr) / repeat(2, 1fr);
     }
@@ -599,6 +641,20 @@ footer a:hover {
         font-size: .6rem;
         padding: 2px;
     }
+}
+
+
+@media (max-width : 375px) {
+
+    .menu {
+        right: -2%;
+        top: -2%;
+    }
+
+    .menu .toggle {
+        font-size: 1.75rem;
+    }
+
 }
 
 @media (max-width: 320px) {
