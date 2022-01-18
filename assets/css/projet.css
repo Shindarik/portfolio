@@ -95,6 +95,9 @@ body {
     transition: all 0.5s ease;
 }
 
+ion-icon {
+    pointer-events: none;
+}
 
 #particles-js {
     position: absolute;
@@ -327,15 +330,21 @@ footer {
     width: 100%;
     height: 10vh;
     min-height: 100px;
+    padding: 0 50px;
     background-color: #ff3284;
 }
 
 footer * {
     color: #fff;
-    margin: 0 50px;
 }
 
-footer a {
+footer .github {
+    width: 10%;
+    max-width: 50px;
+    min-width: 20px;
+}
+
+footer .topButton {
     text-align: center;
     text-decoration: none;
     color: white;
@@ -345,7 +354,7 @@ footer a {
     transition: all 0.25s ease
 }
 
-footer a:hover {
+footer .topButton:hover {
     color: black;
     background-color: #fff;
     border: solid white;
@@ -460,9 +469,12 @@ footer a:hover {
 
 @media (max-width: 425px) {
 
+    footer {
+        padding: 0 20px;
+    }
+
     footer * {
         font-size: 0.75rem;
-        margin: 0 20px;
     }
 
 }

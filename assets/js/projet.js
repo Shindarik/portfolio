@@ -32,6 +32,7 @@ $(document).ready(function () {
         url=url.replace(/\)/g,'');
         url=url.replace("url",'');
         $(".bgBlack img").attr("src", url);
+        $(".bgBlack img").attr("alt", $(this).attr("title"));
         $("body").css("overflow-y", "hidden");
     });
 

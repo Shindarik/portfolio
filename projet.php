@@ -70,7 +70,7 @@
 
     <div class="menu">
         <a class="back" href="./index.html">
-            <div class="toggle">
+            <div class="toggle" title="Retour">
                 <ion-icon name="arrow-back-outline"></ion-icon>
             </div>
         </a>
@@ -155,9 +155,9 @@
                     $req -> execute();
 
                     while($data = $req -> fetch()){
-                        echo '<div class="iconBox" style="grid-area: 1 / 1 / 3 / 2; background-image: url('.$data["photoMed1"].')"></div>';
-                        echo '<div class="iconBox" style="grid-area: 1 / 2 / 2 / 3; background-image: url('.$data["photoMed2"].');"></div>';
-                        echo '<div class="iconBox" style="grid-area: 2 / 2 / 3 / 3; background-image: url('.$data["photoMed3"].');"></div>';
+                        echo '<div class="iconBox" title="Capture 1" style="grid-area: 1 / 1 / 3 / 2; background-image: url('.$data["photoMed1"].')"></div>';
+                        echo '<div class="iconBox" title="Capture 2" style="grid-area: 1 / 2 / 2 / 3; background-image: url('.$data["photoMed2"].');"></div>';
+                        echo '<div class="iconBox" title="Capture 3" style="grid-area: 2 / 2 / 3 / 3; background-image: url('.$data["photoMed3"].');"></div>';
                     }
 
                     $req = null;
@@ -171,7 +171,8 @@
     </div>
 
     <footer>
-        <a href="./index.html"><- Retour</a>
+        <a class="topButton" href="./index.html"><- Retour</a>
+        <a class="github" href="https://github.com/Shindarik" target="_blank"><img src="./images/GitHub.svg" alt="Logo GitHub" title="Logo GitHub"></a>
         <span>Tous droits réservés, 2022</span>
     </footer>
 
