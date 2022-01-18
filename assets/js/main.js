@@ -6,6 +6,14 @@ $(window).on("load", function(){
 
 $(document).ready(function () {
 
+    let winWidth = $(window).width();
+
+    if(winWidth < 425){
+        $(".titreSection").attr("data-aos", "");
+    }
+
+    AOS.init();
+
     let movLeft = 0, compteurMov = 1, compteurSlide = 0;
     let sliderWidth = $(".slide").width();
 
@@ -95,11 +103,13 @@ $(document).ready(function () {
         }
     });
 
-    let winWidth = $(window).width();
-
     $(window).resize(function () {
 
         if(winWidth != $(window).width()){
+
+            if(winWidth < 425){
+                $(".titreSection").attr("data-aos", "");
+            }
 
             winWidth = $(window).width();
 

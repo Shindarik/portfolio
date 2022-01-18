@@ -14,6 +14,8 @@
     <link rel="shortcut icon" href="./images/M.png" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/projet.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./assets/js/particles.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,6 +68,14 @@
 
     <div id="particles-js"></div>
 
+    <div class="menu">
+        <a class="back" href="./index.html">
+            <div class="toggle">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+            </div>
+        </a>
+    </div>
+
     <header>
         <div class="titreProjet">
             <?php
@@ -98,7 +108,7 @@
                     $req = null;
                 ?>
             </div>
-            <div class="textProjet">
+            <div class="textProjet" data-aos="fade-up">
                 <p>
                     <?php
                         $sql = "SELECT textePresentation FROM projet WHERE id = :projetId";
@@ -132,7 +142,7 @@
     </header>
 
     <section id="med">
-        <div class="titreSection">
+        <div class="titreSection" data-aos="fade-right">
             <h3>Médias</h3>
             <img src="./images/blob4.svg" alt="">
         </div>
@@ -165,6 +175,8 @@
         <span>Tous droits réservés, 2022</span>
     </footer>
 
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="./assets/js/projet.js"></script>
     <script src="./assets/js/particlesApp.js"></script>
 </body>

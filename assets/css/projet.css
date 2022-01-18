@@ -60,6 +60,41 @@ body {
     animation-delay: -1.0s;
 }
 
+.back {
+    text-decoration: none;
+    color: white;
+    cursor: url(../../images/cursorClick.svg), auto;
+}
+
+.menu {
+    position: fixed;
+    right: -1%;
+    top: -1%;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.menu .toggle {
+    position: absolute;
+    width: 25%;
+    height: 25%;
+    background-color: #fa3685;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url(../../images/cursorClick.svg), auto;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+    font-size: 2rem;
+    z-index: 10001;
+    transition: all 0.5s ease;
+}
+
 
 #particles-js {
     position: absolute;
@@ -255,7 +290,7 @@ section h3 {
 
 .bgBlack {
     position: fixed;
-    z-index: 10;
+    z-index: 1000000;
     left: 0;
     top: 0;
     width: 100%;
@@ -395,6 +430,19 @@ footer a:hover {
 
 @media (max-width: 768px) {
 
+    .menu {
+        right: -1%;
+        top: -1%;
+        height: 150px;
+        width: 150px;
+    }
+
+    .menu .toggle {
+        width: 35%;
+        height: 35%;
+        font-size: 2rem;
+    }
+
     .aboutProjet {
         flex-direction: column;
         width: 100%;
@@ -415,6 +463,19 @@ footer a:hover {
     footer * {
         font-size: 0.75rem;
         margin: 0 20px;
+    }
+
+}
+
+@media (max-width : 375px) {
+
+    .menu {
+        right: -2%;
+        top: -2%;
+    }
+
+    .menu .toggle {
+        font-size: 1.75rem;
     }
 
 }
